@@ -69,11 +69,11 @@ Reprezentant: Patrik Jantošovič\\
 K = den narození = 16\\
 L = počet písmen v příjmení = 10\\
 M = ((K+L)*46)mod11 + 1 = 2\\
-Výsledkem je teda datový soubor: case0102, mzda dle pohlaví\\
+Výsledkem je tedy datový soubor: case0102, mzda dle pohlaví\\
 
 \subsection{Vytvoření datového souboru}
-Řešení úloh předpokladá úspěšnou instalaci knihovni Sleuth2 a vytvoření .csv souboru s příslušnými datami.\\
-Postup uvedeme jednou na začátku aby jsme se neopakovali.
+Řešení úloh předpokladá úspěšnou instalaci knihovni Sleuth2 a vytvoření .csv souboru s příslušnými daty.\\
+Postup uvedeme jednou na začátku abychom jsme se neopakovali.
 
 \begin{itemize}
 	\item >> install.packages("Sleuth2")
@@ -92,7 +92,8 @@ Postup uvedeme jednou na začátku aby jsme se neopakovali.
 
 \section{Řešení úkolú}
 \subsection{Úkol číslo 1}
-(1b) Načtěte datový soubor a rozdělte sledovanou proměnnou na příslušné dvě pozorované skupiny. Data stručně popište. Pro každu skupinu zvlášť odhadněte střední hodnotu, rozptyl a medián příslušného rozdělení.
+(1b) Načtěte datový soubor a rozdělte sledovanou proměnnou na příslušné dvě pozorované skupiny. Data stručně popište. 
+Pro každu skupinu zvlášť odhadněte střední hodnotu, rozptyl a medián příslušného rozdělení.
 
 \begin{itemize}
 	\item >> data<-read.table("C:/data.csv",header=TRUE,sep=";")
@@ -109,19 +110,19 @@ Postup uvedeme jednou na začátku aby jsme se neopakovali.
 		\end{itemize}
 	\item >> female<-female[,1]
 		\begin{itemize}
-		\item Odseknutí sloupce s pohlavím pro pozorovanou skupinu: Female
+		\item Odřiznutí sloupce s pohlavím pro pozorovanou skupinu: Female
 		\end{itemize}
 	\item >> male<-male[,1]
 		\begin{itemize}
-		\item Odseknutí sloupce s pohlavím pro pozorovanou skupinu: Male
+		\item Odřiznutí sloupce s pohlavím pro pozorovanou skupinu: Male
 		\end{itemize}
 	\item >> length(male)
 		\begin{itemize}
-		\item Velkost dat pro pozorovanou skupinu: Male
+		\item Velikost dat pro pozorovanou skupinu: Male
 		\end{itemize}
 	\item >> length(female)
 		\begin{itemize}
-		\item Velkost dat pro pozorovanou skupinu: Female
+		\item Velikost dat pro pozorovanou skupinu: Female
 		\end{itemize}
 	\item >> var(male)
 		\begin{itemize}
@@ -152,7 +153,7 @@ Výsledky zapíšeme do následujíci tabulky:\\
 \begin{table}[htb]
 \begin{tabular}{lllll}
 \rowcolor[HTML]{EFEFEF}
-Pohlavie & Velkost dat & Střední hodnota & Rozptyl & Medián \\
+Pohlaví & Velkost dat & Střední hodnota & Rozptyl & Medián \\
 \cellcolor[HTML]{EFEFEF}Male     &     32       &         5956.875        &   477112.5      &   6000     \\
 \cellcolor[HTML]{EFEFEF}Female   &      61       &         5138.852        &    291460.3     &   5220    
 \end{tabular}
@@ -180,92 +181,93 @@ Pohlavie & Velkost dat & Střední hodnota & Rozptyl & Medián \\
 		\end{itemize}
 	\item >>plot(ecdf(male))
 		\begin{itemize}
-		\item Vykreslení empirický distribuční funkce pro Male
+		\item Vykreslení empirické distribuční funkce pro Male
 		\end{itemize}
 	\item >>plot(ecdf(female))
 		\begin{itemize}
-		\item Vykreslení empirický distribuční funkce pro Female
+		\item Vykreslení empirické distribuční funkce pro Female
 		\end{itemize}
 \end{itemize}
-Výsledkem jsou grafy přiložené na následujíci stránce.%
+Výsledkem jsou grafy přiložené na následující stránce.%
 \begin{figure}[H]%
     \centering
-    \subfloat[lMale]{{\includegraphics[width=5cm]{hustota-male.png} }}%
+    \subfloat[Male]{{\includegraphics[width=0.4\textwidth]{hustota-male.png} }}%
     \qquad
-    \subfloat[Female]{{\includegraphics[width=5cm]{hustota-female.png} }}%
+    \subfloat[Female]{{\includegraphics[width=0.4\textwidth]{hustota-female.png} }}%
     \caption{Hustota}%
     \label{fig:example}%
 \end{figure}
 \begin{figure}[H]%
     \centering
-    \subfloat[Male]{{\includegraphics[width=5cm]{histogram-male.png} }}%
+    \subfloat[Male]{{\includegraphics[width=0.4\textwidth]{histogram-male.png} }}%
     \qquad
-    \subfloat[Female]{{\includegraphics[width=5cm]{histogram-female.png} }}%
+    \subfloat[Female]{{\includegraphics[width=0.4\textwidth]{histogram-female.png} }}%
     \caption{Histogram}%
     \label{fig:example}%
 \end{figure}
 \begin{figure}[H]%
     \centering
-    \subfloat[Male]{{\includegraphics[width=5cm]{ecdf-male.png} }}%
+    \subfloat[Male]{{\includegraphics[width=0.4\textwidth]{ecdf-male.png} }}%
     \qquad
-    \subfloat[Female]{{\includegraphics[width=5cm]{ecdf-female.png} }}%
+    \subfloat[Female]{{\includegraphics[width=0.4\textwidth]{ecdf-female.png} }}%
     \caption{Empirická distribuční funkce}%
     \label{fig:example}%
 \end{figure}
 
 \subsection{Úkol číslo 3}
-(3b) Pro každou skupinu zvlášť najděte nejbližší rozdělení: Odhadněte parametry normálního, exponenciálního a rovnoměrného rozdělení. Zaneste příslušné hustoty s odhadnutými parametry do grafů histogramu. Diskutujte, které z rozdělení odpovídá pozorovaným datům nejlépe.
+(3b) Pro každou skupinu zvlášť najděte nejbližší rozdělení: Odhadněte parametry normálního, exponenciálního a rovnoměrného rozdělení. 
+Zaneste příslušné hustoty s odhadnutými parametry do grafů histogramu. Diskutujte, které z rozdělení odpovídá pozorovaným datům nejlépe.
 \begin{itemize}
 	\item Male
 		\begin{itemize}
 		\item  >> hist(male, freq=FALSE)
 		        \begin{itemize}
-		        \item Porovnávame distribuční funkce rúznich rozdelení na histogramu.
+		        \item Porovnávame distribuční funkce různých rozdělení na histogramu.
 		        \end{itemize}
-		\item Normálni rozdelení
+		\item Normální rozdělení
 			\begin{itemize}
 		        \item >> maleV<-seq(min(male),max(male),10)
 		                \begin{itemize}
-		                \item vytvoríme si sekvenciu hodnot od nejmenší po nejvetší hodnoty 
+		                \item vytvoříme si sekvenci hodnot od nejmenší po největší hodnoty 
 		                \end{itemize}
 		        \item >> maleNorm<-dnorm(maleV, mean = mean(male), sd = sd(male))
 		                \begin{itemize}
-		                \item využijeme funkci dnorm na převod pro body normálniho rozdelení
+		                \item využijeme funkci dnorm na převod pro body normálního rozdělení
 		                \end{itemize}
 		        \item >> lines(maleV,maleNorm, col=''blue'')
 		                \begin{itemize}
-		                \item vykreslíme normálni rozdelení na histogram
+		                \item vykreslíme normální rozdělení na histogram
 		                \end{itemize}
 		        \end{itemize}
-		\item Exponenciálni rozdelení
+		\item Exponenciální rozdělení
 			\begin{itemize}
 		        \item >> lambdaMale<-1/mean(male)
 		                \begin{itemize}
-		                \item vypočteme si parametr pro exponenciálni rozdeleni jako 1 / střední hodnota
+		                \item vypočteme si parametr pro exponenciální rozdělení jako $\frac{1}{střední \ hodnota}$
 		                \end{itemize}
 		        \item >> maleExp<-dexp(maleV, lambdaMale)
 		                \begin{itemize}
-		                \item využijeme funkci dexp na vypočet bodu exponenciálniho rozdelení
+		                \item využijeme funkci dexp na vypočet bodu exponenciálního rozdělení
 		                \end{itemize}
 		        \item >>  lines(maleV,maleExp, col=''red'')
 		                \begin{itemize}
-		                \item vykreslíme exponencionálni rozdelení na histogram
+		                \item vykreslíme exponencionální rozdělení na histogram
 		                \end{itemize}
 		        \end{itemize}
-		\item Uniformní rozdelení
+		\item Uniformní rozdělení
 			\begin{itemize}
 		        \item >> aMale<-mean(male)-sqrt(3*var(male))
 		        \item >> bMale<-sqrt(3*var(male))+mean(male)
 		                \begin{itemize}
-		                \item vypočteme si parametr `a` a `b` pro uniformní rozdeleni podle vztahu k střední hodnote a rozptylu ze cvičení
+		                \item vypočteme si parametr `a` a `b` pro uniformní rozdělení podle vztahu k střední hodnote a rozptylu ze cvičení
 		                \end{itemize}
 		        \item >> maleUnif<-dunif(maleV, aMale,bMale)
 		                \begin{itemize}
-		                \item využijeme funkci dunif na vypočet bodu uniformního rozdelení
+		                \item využijeme funkci dunif na výpočet bodu uniformního rozdělení
 		                \end{itemize}
 		        \item >> lines(maleV,maleUnif, col=''yellow'')
 		                \begin{itemize}
-		                \item vykreslíme uniformni rozdelení na histogram
+		                \item vykreslíme uniformní rozdělení na histogram
 		                \end{itemize}
 		        \end{itemize}
 		\end{itemize}
@@ -273,52 +275,52 @@ Výsledkem jsou grafy přiložené na následujíci stránce.%
 		\begin{itemize}
 		\item  >> hist(female, freq=FALSE)
 		        \begin{itemize}
-		        \item Porovnávame distribuční funkce rúznich rozdelení na histogramu.
+		        \item Porovnávame distribuční funkce různých rozdělení na histogramu.
 		        \end{itemize}
-		\item Normálni rozdelení
+		\item Normálni rozdělení
 			\begin{itemize}
 		        \item >> femaleV<-seq(min(female),max(female),10)
 		                \begin{itemize}
-		                \item vytvoríme si sekvenciu hodnot od nejmenší po nejvetší hodnoty 
+		                \item vytvoříme si sekvenci hodnot od nejmenší po největší hodnoty 
 		                \end{itemize}
 		        \item >> femaleNorm<-dnorm(femaleV, mean = mean(female), sd = sd(female))
 		                \begin{itemize}
-		                \item využijeme funkci dnorm na převod pro body normálniho rozdelení
+		                \item využijeme funkci dnorm na převod pro body normálního rozdělení
 		                \end{itemize}
 		        \item >> lines(femaleV,femaleNorm, col=''blue'')
 		                \begin{itemize}
-		                \item vykreslíme normálni rozdelení na histogram
+		                \item vykreslíme normální rozdělení na histogram
 		                \end{itemize}
 		        \end{itemize}
-		\item Exponenciálni rozdelení
+		\item Exponenciální rozdělení
 			\begin{itemize}
 		        \item >> lambdaFemale<-1/mean(female)
 		                \begin{itemize}
-		                \item vypočteme si parametr pro exponenciálni rozdeleni jako 1 / střední hodnota
+		                \item vypočteme si parametr pro exponenciální rozdělení jako $\frac{1}{střední \ hodnota}$
 		                \end{itemize}
 		        \item >> femaleExp<-dexp(femaleV, lambdaFemale)
 		                \begin{itemize}
-		                \item využijeme funkci dexp na vypočet bodu exponenciálniho rozdelení
+		                \item využijeme funkci dexp na výpočet bodu exponenciálního rozdělení
 		                \end{itemize}
 		        \item >> lines(femaleV,femaleExp, col=''red'')
 		                \begin{itemize}
-		                \item vykreslíme exponencionálni rozdelení na histogram
+		                \item vykreslíme exponencionální rozdělení na histogram
 		                \end{itemize}
 		        \end{itemize}
-		\item Uniformní rozdelení
+		\item Uniformní rozdělení
 			\begin{itemize}
 		        \item >> aFemale<-mean(female)-sqrt(3*var(female))
 		        \item >> bFemale<-sqrt(3*var(female))+mean(female)
 		                \begin{itemize}
-		                \item vypočteme si parametr `a` a `b` pro uniformní rozdeleni podle vztahu k střední hodnote a rozptylu ze cvičení
+		                \item vypočteme si parametr `a` a `b` pro uniformní rozdělení podle vztahu ke střední hodnotě a rozptylu ze cvičení
 		                \end{itemize}
 		        \item >> femaleUnif<-dunif(femaleV, aFemale,bFemale)
 		                \begin{itemize}
-		                \item využijeme funkci dunif na vypočet bodu uniformního rozdelení
+		                \item využijeme funkci dunif na výpočet bodu uniformního rozdělení
 		                \end{itemize}
 		        \item >> lines(femaleV,femaleUnif, col=''yellow'')
 		                \begin{itemize}
-		                \item vykreslíme uniformni rozdelení na histogram
+		                \item vykreslíme uniformní rozdělení na histogram
 		                \end{itemize}
 		        \end{itemize}
 		\end{itemize}
@@ -326,13 +328,52 @@ Výsledkem jsou grafy přiložené na následujíci stránce.%
 Výsledkem jsou následujíci grafy:%
 \begin{figure}[H]%
     \centering
-    \subfloat[Male]{{\includegraphics[width=5cm]{porovnani-male.png} }}%
+    \subfloat[Male]{{\includegraphics[width=0.4\textwidth]{porovnani-male.png} }}%
     \qquad
-    \subfloat[Female]{{\includegraphics[width=5cm]{porovnani-female.png} }}%
-    \caption{Porovnání rozdelení}%
+    \subfloat[Female]{{\includegraphics[width=0.4\textwidth]{porovnani-female.png} }}%
+    \caption{Porovnání rozdělení}%
     \label{fig:example}%
 \end{figure}
-Došli sme k záveru že se u obou datasetu jedná o Normální rozdelení.
+Došli jsme k záveru, že se u obou datasetu jedná o Normální rozdělení.
 
+\subsection{Úkol číslo 4}
+(1b) Pro každou skupinu zvlášť vygenerujte náhodný výběr o 100 hodnotách z rozdělení, které jste zvolili jako nejbližší, 
+s parametry odhadnutými v předchozím bodě. Porovnejte histogram simulovaných hodnot s pozorovanými daty.
+\begin{itemize}
+	\item Male
+		\begin{itemize}
+			\item >> maleRand100 = rnorm(100, mean(male), sd(male))
+				\begin{itemize}
+				\item vybereme 100 náhodných hodnot použitím funkce rnorm
+				\end{itemize}
+			\item >> hist(maleRand100)
+				\begin{itemize}
+				\item vykrelslíme z náhodně vybraných dat histogram
+				\end{itemize}
+		\end{itemize}
+	\item Female
+		\begin{itemize}
+			\item >> femaleRand100 = rnorm(100, mean(female), sd(female))
+				\begin{itemize}
+				\item vybereme 100 náhodných hodnot použitím funkce rnorm
+				\end{itemize}
+			\item >> hist(femaleRand100)
+				\begin{itemize}
+				\item vykrelslíme z náhodně vybraných dat histogram 
+				\end{itemize}
+		\end{itemize}
+\end{itemize}
+\newpage
+Výsledkem jsou následujíci grafy:
+\begin{figure}[H]
+  \centering
+  \subfloat[Male]{\includegraphics[width=0.4\textwidth]{nahodene100-male.png}}
+  \qquad
+  \subfloat[Female]{\includegraphics[width=0.4\textwidth]{nahodene100-female.png}}
+  \caption{Vygenerované histogramy}
+\end{figure}
+Došli jsme k závěru, že zatímco vygenrovaný graf pro male \iffalse fakt nevim jak to nazvat \fi se velmi liší od původního
+histogramu což je způsobeno malým množstvím dat. U female \iffalse ¯\_(ツ)_/¯ \fi kde máme $\approx$ 2x více dat se histogramy
+velmi podobají i přes relativně malé množství dat.
 %%% End document
 \end{document}
