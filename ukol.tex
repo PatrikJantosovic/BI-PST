@@ -378,14 +378,45 @@ velmi podobají i přes relativně malé množství dat.
 
 \subsection{Úkol číslo 5}
 (1b) Pro každou skupinu zvlášť spočítejte oboustranný 95\% konfidenční interval pro střední hodnotu.
-
+\newline\par
+Ze zadaných dat nevíme přesně určit hodnotu rozptylu, proto musíme použit odhad intervalu kde se uplatňuje studentovo rozdelení. Když předpokladáme, že naše rozdelení je normálni (teda minimálne alespoň podobné normálnímu ), výsledek bude spolehlivý i při menším počtu dat. 
+\[ 
+\bigg(\overline{X_n} - t_{\alpha/2,n-1}\frac{s_n}{\sqrt{n}},
+ \overline{X_n} + t_{\alpha/2,n-1}\frac{s_n}{\sqrt{n}} \bigg) 
+\] 
 \begin{itemize}
-	\item >> 
-	working on it
+	\item Male
 	\begin{itemize}
-		\item working on it
+		\item >> maleN = length(male)
+	\end{itemize}
+	\begin{itemize}
+		\item >> maleMean = mean(male)
+		\begin{itemize}
+			\item udeláme bodovej odhad pro střední hodnotu	
+		\end{itemize}
+	\end{itemize}
+	\begin{itemize}
+		\item >> maleSd = sd(male)
+		\begin{itemize}
+			\item udeláme bodovej odhad pro směrodatnú odchylku %je to skutocne vyberova smerodatna odchylka? nie som si isty... 1 / n - 1
+		\end{itemize}
+	\end{itemize}
+	\item Female
+	\begin{itemize}
+		\item >> femaleN = length(female)
+	\end{itemize}
+	\begin{itemize}
+		\item >> femaleMean = mean(female)
+		\begin{itemize}
+				\item udeláme bodovej odhad pro střední hodnotu	
+		\end{itemize}
+	\end{itemize}
+	\begin{itemize}
+		\item >> femaleSd = sd(female)
+		\begin{itemize}
+			\item udeláme bodovej odhad pro směrodatnú odchylku %je to skutocne vyberova smerodatna odchylka? nie som si isty... 1 / n - 1
+		\end{itemize}
 	\end{itemize}
 \end{itemize}
-
 %%% End document
 \end{document}
