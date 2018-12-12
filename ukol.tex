@@ -96,7 +96,7 @@ Postup uvedeme jednou na začátku abychom jsme se neopakovali.
 Pro každu skupinu zvlášť odhadněte střední hodnotu, rozptyl a medián příslušného rozdělení.
 
 \begin{itemize}
-	\item >> data<-read.table("C:/data.csv",header=TRUE,sep=";")
+	\item >> data<-read.table("C:/data.csv",header=TRUE,sep=";") %ako budeme dalej riesit vyber dat , dalsie ulohy
 		\begin{itemize}
 		\item Načteme data z připraveného souboru
 		\end{itemize}
@@ -108,7 +108,7 @@ Pro každu skupinu zvlášť odhadněte střední hodnotu, rozptyl a medián př
 		\begin{itemize}
 		\item Načítaní dat pro pozorovanou skupinu: Male
 		\end{itemize}
-	\item >> female<-female[,1]
+	\item >> female<-female[,1] %da sa zdrcnut do jedneho prikazu nech to nie je ako na fitwiky
 		\begin{itemize}
 		\item Odřiznutí sloupce s pohlavím pro pozorovanou skupinu: Female
 		\end{itemize}
@@ -375,48 +375,60 @@ Výsledkem jsou následujíci grafy:
 Došli jsme k závěru, že zatímco vygenrovaný graf pro male \iffalse fakt nevim jak to nazvat \fi se velmi liší od původního
 histogramu což je způsobeno malým množstvím dat. U female \iffalse ¯\_(ツ)_/¯ \fi kde máme $\approx$ 2x více dat se histogramy
 velmi podobají i přes relativně malé množství dat.
-
+\newpage
 \subsection{Úkol číslo 5}
 (1b) Pro každou skupinu zvlášť spočítejte oboustranný 95\% konfidenční interval pro střední hodnotu.
 \newline\par
-Ze zadaných dat nevíme přesně určit hodnotu rozptylu, proto musíme použit odhad intervalu kde se uplatňuje studentovo rozdelení. Když předpokladáme, že naše rozdelení je normálni (teda minimálne alespoň podobné normálnímu ), výsledek bude spolehlivý i při menším počtu dat. 
+Ze zadaných dat nevíme přesně určit hodnotu rozptylu, proto musíme použit odhad intervalu kde se uplatňuje studentovo rozdelení. Když předpokladáme, že naše rozdelení je normálni (teda minimálne alespoň podobné normálnímu), výsledek bude spolehlivý i při menším počtu dat. 
 \[ 
 \bigg(\overline{X_n} - t_{\alpha/2,n-1}\frac{s_n}{\sqrt{n}},
  \overline{X_n} + t_{\alpha/2,n-1}\frac{s_n}{\sqrt{n}} \bigg) 
-\] 
+\] \par
+Spolehlivost intervalu je 95\%, teda \(1 - \alpha = 0.95 \Rightarrow \alpha/2 = 0.025\)
 \begin{itemize}
 	\item Male
 	\begin{itemize}
-		\item >> maleN = length(male)
-	\end{itemize}
-	\begin{itemize}
-		\item >> maleMean = mean(male)
+		\item[>>]\textit{ maleN = length(male)}
+		\item[>>]\textit{ maleMean = mean(male)}
 		\begin{itemize}
 			\item udeláme bodovej odhad pro střední hodnotu	
 		\end{itemize}
-	\end{itemize}
-	\begin{itemize}
-		\item >> maleSd = sd(male)
+		\item[>>]\textit{ maleSd = sd(male)}
 		\begin{itemize}
-			\item udeláme bodovej odhad pro směrodatnú odchylku %je to skutocne vyberova smerodatna odchylka? nie som si isty... 1 / n - 1
+			\item udeláme bodovej odhad pro výběrovou směrodatní odchylku 
+		\end{itemize}
+		\item[>>]\textit{maleDown = maleMean - qt(1-0.025,df=maleN-1)*maleSd/sqrt(maleN)} 
+		\item[>>]\textit{ maleUp = maleMean + qt(1-0.025,df=maleN-1)*maleSd/sqrt(maleN)}
+		\begin{itemize}
+			\item funkce qt(...) očekáva ako první parameter \(1 - \alpha\) (mírny rozdíl od zápisu studentovho t-rozdělení v prednáškach)    
 		\end{itemize}
 	\end{itemize}
+	
+	\[
+	 \textbf{(5707.839, 6205.911)}
+	\]
+
 	\item Female
 	\begin{itemize}
-		\item >> femaleN = length(female)
-	\end{itemize}
+	\item[>>]\textit{ femaleN = length(female)}
+	\item[>>]\textit{ femaleMean = mean(female)}
 	\begin{itemize}
-		\item >> femaleMean = mean(female)
-		\begin{itemize}
-				\item udeláme bodovej odhad pro střední hodnotu	
-		\end{itemize}
+		\item udeláme bodovej odhad pro střední hodnotu	
 	\end{itemize}
+	\item[>>]\textit{ femaleSd = sd(female)}
 	\begin{itemize}
-		\item >> femaleSd = sd(female)
-		\begin{itemize}
-			\item udeláme bodovej odhad pro směrodatnú odchylku %je to skutocne vyberova smerodatna odchylka? nie som si isty... 1 / n - 1
-		\end{itemize}
+		\item udeláme bodovej odhad pro výběrovou směrodatní odchylku 
 	\end{itemize}
+	\item[>>]\textit{femaleDown = femaleMean - qt(1-0.025,df=femaleN-1)*femaleSd/sqrt(femaleN)} 
+	\item[>>]\textit{ femaleUp = femaleMean + qt(1-0.025,df=femaleN-1)*femaleSd/sqrt(femaleN)}
+	\begin{itemize}
+		\item funkce qt(...) očekáva ako první parameter \(1 - \alpha\) (mírny rozdíl od zápisu studentovho t-rozdělení v prednáškach)    
+	\end{itemize}
+\end{itemize}
+
+\[
+\textbf{(5000.585, 5277.12)}
+\]
 \end{itemize}
 %%% End document
 \end{document}
