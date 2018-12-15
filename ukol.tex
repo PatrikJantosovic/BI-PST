@@ -434,8 +434,40 @@ Spolehlivost intervalu je 95\%, teda \(1 - \alpha = 0.95 \Rightarrow \alpha/2 = 
 \newpage
 \subsection{Úkol číslo 6}
 (1b) Pro každou skupinu zvlášť otestujte na hladině významnosti 5\% hypotézu, zda je střední hodnota rovná hodnotě K (parametr úlohy - 16), proti oboustranné alternativě. Můžete použít buď výsledek z předešlého bodu, nebo výstup z příslušné vestavěné funkce vašeho softwaru.
-\newline\par
-Working on it
+\\\\
+\(H_0\) : střední hodnota je rovná 16\\
+\(H_A\) : střední hodnota není je rovná 16\\
+
+\begin{itemize}
+	\item Male
+	\begin{itemize}
+		\item[>>]\textit{t.test(male,mu=16,alternative="two.sided")}\\\\
+			data:  male\\
+			t = 48.654, df = 31, p-value < 2.2e-16\\
+			alternative hypothesis: true mean is not equal to 16\\
+			95 percent confidence interval:\\
+			5707.839 6205.911\\
+			sample estimates:\\
+			mean of x\\
+			5956.875
+	\end{itemize}
+	\item Male
+	\begin{itemize}
+		\item[>>]\textit{t.test(female,mu=16,alternative="two.sided")}\\\\
+		data:  female\\
+		t = 74.112, df = 60, p-value < 2.2e-16\\
+		alternative hypothesis: true mean is not equal to 16\\
+		95 percent confidence interval:\\
+		5000.585 5277.120\\
+		sample estimates:\\
+		mean of x\\
+		5138.852\\
+	\end{itemize}
+\end{itemize}
+\par
+Je zrejmé, že testovaná hodnota K = 16 v konfidenčním intervalu neleží. Na hladině spolehlivosti 5\% zamítneme \(H_0\) v prospěch  \(H_A\).  (platí pro oba sledované skupiny)
+
+
 
 \newpage
 \subsection{Úkol číslo 7}
