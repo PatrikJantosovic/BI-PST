@@ -73,7 +73,7 @@ Výsledkem je tedy datový soubor: case0102, mzda dle pohlaví\\
 
 \subsection{Vytvoření datového souboru}
 Řešení úloh předpokladá úspěšnou instalaci knihovni Sleuth2 a vytvoření .csv souboru s příslušnými daty.\\
-Postup uvedeme jednou na začátku abychom jsme se neopakovali.
+Postup uvedeme jednou na začátku, abychom jsme se neopakovali.
 
 \begin{itemize}
 	\item >> install.packages("Sleuth2")
@@ -90,7 +90,7 @@ Postup uvedeme jednou na začátku abychom jsme se neopakovali.
 		\end{itemize}
 \end{itemize}
 
-\section{Řešení úkolú}
+\section{Řešení úkolů}
 \subsection{Úkol číslo 1}
 (1b) Načtěte datový soubor a rozdělte sledovanou proměnnou na příslušné dvě pozorované skupiny. Data stručně popište. 
 Pro každu skupinu zvlášť odhadněte střední hodnotu, rozptyl a medián příslušného rozdělení.
@@ -153,7 +153,7 @@ Výsledky zapíšeme do následujíci tabulky:\\
 \begin{table}[htb]
 \begin{tabular}{lllll}
 \rowcolor[HTML]{EFEFEF}
-Pohlaví & Velkost dat & Střední hodnota & Rozptyl & Medián \\
+Pohlaví & Velikost dat & Střední hodnota & Rozptyl & Medián \\
 \cellcolor[HTML]{EFEFEF}Male     &     32       &         5956.875        &   477112.5      &   6000     \\
 \cellcolor[HTML]{EFEFEF}Female   &      61       &         5138.852        &    291460.3     &   5220    
 \end{tabular}
@@ -259,7 +259,7 @@ Zaneste příslušné hustoty s odhadnutými parametry do grafů histogramu. Dis
 		        \item >> aMale<-mean(male)-sqrt(3*var(male))
 		        \item >> bMale<-sqrt(3*var(male))+mean(male)
 		                \begin{itemize}
-		                \item vypočteme si parametr `a` a `b` pro uniformní rozdělení podle vztahu k střední hodnote a rozptylu ze cvičení
+		                \item vypočteme si parametr `a` a `b` pro uniformní rozdělení podle vztahu k střední hodnotě a rozptylu ze cvičení
 		                \end{itemize}
 		        \item >> maleUnif<-dunif(maleV, aMale,bMale)
 		                \begin{itemize}
@@ -334,7 +334,7 @@ Výsledkem jsou následujíci grafy:%
     \caption{Porovnání rozdělení}%
     \label{fig:example}%
 \end{figure}
-Došli jsme k záveru, že se u obou datasetu jedná o Normální rozdělení.
+Došli jsme k závěru, že se u obou datasetů jedná o Normální rozdělení.
 
 \subsection{Úkol číslo 4}
 (1b) Pro každou skupinu zvlášť vygenerujte náhodný výběr o 100 hodnotách z rozdělení, které jste zvolili jako nejbližší, 
@@ -379,28 +379,28 @@ velmi podobají i přes relativně malé množství dat.
 \subsection{Úkol číslo 5}
 (1b) Pro každou skupinu zvlášť spočítejte oboustranný 95\% konfidenční interval pro střední hodnotu.
 \newline\par
-Ze zadaných dat nevíme přesně určit hodnotu rozptylu, proto musíme použit odhad intervalu kde se uplatňuje studentovo rozdelení. Když předpokladáme, že naše rozdelení je normálni (teda minimálne alespoň podobné normálnímu), výsledek bude spolehlivý i při menším počtu dat. 
+Ze zadaných dat neumíme přesně určit hodnotu rozptylu, proto musíme použít odhad intervalu kde se uplatňuje Studentovo rozdělení. Když předpokladáme, že naše rozdělení je normální (tedy minimálne alespoň podobné normálnímu), výsledek bude spolehlivý i při menším počtu dat. 
 \[ 
 \bigg(\overline{X_n} - t_{\alpha/2,n-1}\frac{s_n}{\sqrt{n}},
  \overline{X_n} + t_{\alpha/2,n-1}\frac{s_n}{\sqrt{n}} \bigg) 
 \] \par
-Spolehlivost intervalu je 95\%, teda \(1 - \alpha = 0.95 \Rightarrow \alpha/2 = 0.025\)
+Spolehlivost intervalu je 95\%, tedy \(1 - \alpha = 0.95 \Rightarrow \alpha/2 = 0.025\)
 \begin{itemize}
 	\item Male
 	\begin{itemize}
 		\item[>>]\textit{ maleN = length(male)}
 		\item[>>]\textit{ maleMean = mean(male)}
 		\begin{itemize}
-			\item udeláme bodovej odhad pro střední hodnotu	
+			\item uděláme bodový odhad pro střední hodnotu	
 		\end{itemize}
 		\item[>>]\textit{ maleSd = sd(male)}
 		\begin{itemize}
-			\item udeláme bodovej odhad pro výběrovou směrodatní odchylku 
+			\item uděláme bodový odhad pro výběrovou směrodatnou odchylku 
 		\end{itemize}
 		\item[>>]\textit{maleDown = maleMean - qt(1-0.025,df=maleN-1)*maleSd/sqrt(maleN)} 
 		\item[>>]\textit{ maleUp = maleMean + qt(1-0.025,df=maleN-1)*maleSd/sqrt(maleN)}
 		\begin{itemize}
-			\item funkce qt(...) očekáva ako první parameter \(1 - \alpha\) (mírny rozdíl od zápisu studentovho t-rozdělení v prednáškach)    
+			\item funkce qt(...) očekáva jako první parametr \(1 - \alpha\) (mírný rozdíl od zápisu studentova t-rozdělení v přednáškach)    
 		\end{itemize}
 	\end{itemize}
 	
@@ -413,16 +413,16 @@ Spolehlivost intervalu je 95\%, teda \(1 - \alpha = 0.95 \Rightarrow \alpha/2 = 
 	\item[>>]\textit{ femaleN = length(female)}
 	\item[>>]\textit{ femaleMean = mean(female)}
 	\begin{itemize}
-		\item udeláme bodovej odhad pro střední hodnotu	
+		\item uděláme bodový odhad pro střední hodnotu	
 	\end{itemize}
 	\item[>>]\textit{ femaleSd = sd(female)}
 	\begin{itemize}
-		\item udeláme bodovej odhad pro výběrovou směrodatní odchylku 
+		\item uděláme bodový odhad pro výběrovou směrodatnou odchylku 
 	\end{itemize}
 	\item[>>]\textit{femaleDown = femaleMean - qt(1-0.025,df=femaleN-1)*femaleSd/sqrt(femaleN)} 
 	\item[>>]\textit{ femaleUp = femaleMean + qt(1-0.025,df=femaleN-1)*femaleSd/sqrt(femaleN)}
 	\begin{itemize}
-		\item funkce qt(...) očekáva ako první parameter \(1 - \alpha\) (mírny rozdíl od zápisu studentovho t-rozdělení v prednáškach)    
+		\item funkce qt(...) očekáva jako první parametr \(1 - \alpha\) (mírný rozdíl od zápisu studentova t-rozdělení v přednáškach)    
 	\end{itemize}
 \end{itemize}
 
@@ -433,7 +433,8 @@ Spolehlivost intervalu je 95\%, teda \(1 - \alpha = 0.95 \Rightarrow \alpha/2 = 
 
 \newpage
 \subsection{Úkol číslo 6}
-(1b) Pro každou skupinu zvlášť otestujte na hladině významnosti 5\% hypotézu, zda je střední hodnota rovná hodnotě K (parametr úlohy - 16), proti oboustranné alternativě. Můžete použít buď výsledek z předešlého bodu, nebo výstup z příslušné vestavěné funkce vašeho softwaru.
+(1b) Pro každou skupinu zvlášť otestujte na hladině významnosti 5\% hypotézu, zda je střední hodnota rovná hodnotě K (parametr úlohy - 16),
+proti oboustranné alternativě. Můžete použít buď výsledek z předešlého bodu, nebo výstup z příslušné vestavěné funkce vašeho softwaru.
 \\\\
 \(H_0\) : střední hodnota je rovná 16\\
 \(H_A\) : střední hodnota není rovná 16\\
@@ -454,25 +455,57 @@ Spolehlivost intervalu je 95\%, teda \(1 - \alpha = 0.95 \Rightarrow \alpha/2 = 
 	\item Male
 	\begin{itemize}
 		\item[>>]\textit{t.test(female,mu=16,alternative="two.sided")}\\\\
-		data:  female\\
-		t = 74.112, df = 60, p-value < 2.2e-16\\
-		alternative hypothesis: true mean is not equal to 16\\
-		95 percent confidence interval:\\
-		5000.585 5277.120\\
-		sample estimates:\\
-		mean of x\\
-		5138.852\\
+			data:  female\\
+			t = 74.112, df = 60, p-value < 2.2e-16\\
+			alternative hypothesis: true mean is not equal to 16\\
+			95 percent confidence interval:\\
+			5000.585 5277.120\\
+			sample estimates:\\
+			mean of x\\
+			5138.852\\
 	\end{itemize}
 \end{itemize}
 \par
-Je zrejmé, že testovaná hodnota K = 16 v konfidenčním intervalu neleží. Na hladině spolehlivosti 5\% zamítneme \(H_0\) v prospěch  \(H_A\).  (platí pro oba sledované skupiny)
+Je zřejmé, že testovaná hodnota K = 16 v konfidenčním intervalu neleží. Na hladině spolehlivosti 5\% zamítneme \(H_0\) v prospěch  \(H_A\) (platí pro obě sledované skupiny).
 
 
 
 \newpage
 \subsection{Úkol číslo 7}
-(2b) Na hladině spolehlivosti 5\% otestujte, jestli mají pozorované skupiny stejnou střední hodnotu. Typ testu a alternativy stanovte tak, aby vaše volba nejlépe korespondovala s povahou zkoumaného problému.
-\newline\par
-Working on it
+(2b) Na hladině spolehlivosti 5\% otestujte, jestli mají pozorované skupiny stejnou střední hodnotu.
+Typ testu a alternativy stanovte tak, aby vaše volba nejlépe korespondovala s povahou zkoumaného problému.
+\begin{itemize}
+	\item [>>] t.test(female, mu=mean(male), alternative="two.sided")\\
+	\\
+	One Sample t-test\\
+	\\
+	data:  female\\
+	t = -11.834, df = 60, p-value < 2.2e-16\\
+	alternative hypothesis: true mean is not equal to 5956.875\\
+	95 percent confidence interval:\\
+ 	5000.585 5277.120\\
+	sample estimates:\\
+	mean of x\\
+ 	5138.852\\
+
+	\item [>>] t.test(male, mu=mean(female), alternative="two.sided")\\
+	\\
+	One Sample t-test\\
+	\\
+	data:  male\\
+	t = 6.6993, df = 31, p-value = 1.707e-07\\
+	alternative hypothesis: true mean is not equal to 5138.852\\
+	95 percent confidence interval:\\
+	5707.839 6205.911\\
+	sample estimates:\\
+	mean of x\\
+	5956.875\\
+
+\end{itemize}
+Na hladině spolehlivosti 5\% (která je implicitní hodnotou \textit{conf.level}) testujeme, zda střední hodnota male $\in \textbf{(5000.585 , 5277.120)}$  konfidenčního intervalu female a 
+obráceně, zda  střední hodnota female $\in \textbf{(5707.839, 6205.911)}$  konfidenčního intervalu male. Vyšlo nám $p = 0.00000000000000022$ pro první a
+$p =  0.0000001707$ pro druhou hypotézu,tudíž zamítneme obě hypotézy ve prospěch alternativní hypotézy (nerovnají se).
+
+
 %%% End document
 \end{document}
