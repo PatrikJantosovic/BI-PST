@@ -88,6 +88,18 @@ Postup uvedeme jednou na začátku, abychom jsme se neopakovali.
 		\begin{itemize}
 		\item Zápis dat do .csv souboru
 		\end{itemize}
+	\item >> data<-read.table("C:/data.csv",header=TRUE,sep=";") 
+		\begin{itemize}
+		\item Načteme data z připraveného souboru
+		\end{itemize}
+	\item >> female<-data[1:61,1]
+		\begin{itemize}
+		\item Načítaní dat pro pozorovanou skupinu: Female
+		\end{itemize}
+	\item >> male<-data[62:93,1]
+		\begin{itemize}
+		\item Načítaní dat pro pozorovanou skupinu: Male
+		\end{itemize}
 \end{itemize}
 
 \section{Řešení úkolů}
@@ -96,26 +108,6 @@ Postup uvedeme jednou na začátku, abychom jsme se neopakovali.
 Pro každu skupinu zvlášť odhadněte střední hodnotu, rozptyl a medián příslušného rozdělení.
 
 \begin{itemize}
-	\item >> data<-read.table("C:/data.csv",header=TRUE,sep=";") %ako budeme dalej riesit vyber dat , dalsie ulohy
-		\begin{itemize}
-		\item Načteme data z připraveného souboru
-		\end{itemize}
-	\item >> female<-data[1:61,]
-		\begin{itemize}
-		\item Načítaní dat pro pozorovanou skupinu: Female
-		\end{itemize}
-	\item >> male<-data[62:93,]
-		\begin{itemize}
-		\item Načítaní dat pro pozorovanou skupinu: Male
-		\end{itemize}
-	\item >> female<-female[,1] %da sa zdrcnut do jedneho prikazu nech to nie je ako na fitwiky
-		\begin{itemize}
-		\item Odřiznutí sloupce s pohlavím pro pozorovanou skupinu: Female
-		\end{itemize}
-	\item >> male<-male[,1]
-		\begin{itemize}
-		\item Odřiznutí sloupce s pohlavím pro pozorovanou skupinu: Male
-		\end{itemize}
 	\item >> length(male)
 		\begin{itemize}
 		\item Velikost dat pro pozorovanou skupinu: Male
